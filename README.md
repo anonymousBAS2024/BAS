@@ -3,17 +3,17 @@
 
 ## Environment Requirements
 
- We run the code on a computer with `RTX-4090`, and `24G` memory. The code was tested with `python 3.9.13`, `pytorch 1.13.1`, `cudatoolkit 11.7.0`. Install the dependencies via [Anaconda](https://www.anaconda.com/):
+ We run the code on a computer with `RTX-4090`, and `24G` memory. The code was tested with `python 3.9.0`, `pytorch 2.4.0`, `cudatoolkit 11.7.0`. Install the dependencies via [Anaconda](https://www.anaconda.com/):
 
 ```
 # create a virtual environment
-conda create --name BAS python=3.8.13
+conda create --name BAS python=3.9.0
 
 # activate environment
 conda activate BAS
 
 # install pytorch & cudatoolkit
-conda install pytorch torchvision torchaudio pytorch-cuda=11.7 -c pytorch -c nvidia
+pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
 ```
 
 ## How to train
