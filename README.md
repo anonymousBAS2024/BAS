@@ -21,7 +21,6 @@ We train the model via running:
 
 ```
 cd Desktop/codes/config/{task}
-<br>
 python train_ours.py -opt=options/train/ours.yml
 ```
 ## How to test
