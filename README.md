@@ -3,7 +3,7 @@
 
 ## Environment Requirements
 
- We run the code on a computer with `RTX-4090`, and `24G` memory. The code was tested with `python 3.9.0`, `pytorch 2.4.0`, `cudatoolkit 11.7.0`. Install the dependencies via [Anaconda](https://www.anaconda.com/):
+ We run the code on a computer with `RTX-4090`, and `24G` memory. The code was tested with `python 3.9.0`, `pytorch 2.4.0`, `cudatoolkit 12.1.0`. Install the dependencies via [Anaconda](https://www.anaconda.com/):
 
 ```
 # create a virtual environment
