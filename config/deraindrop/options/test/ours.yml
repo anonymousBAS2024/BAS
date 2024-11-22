@@ -1,0 +1,40 @@
+name: ours
+suffix: ~  # add suffix to saved images
+model: denoising
+distortion: derain
+gpu_ids: [0]
+
+sde:
+  
+  T: 100
+  schedule: cosine # linear, cosine
+  eps: 0.005
+  sampling_mode: posterior
+  
+degradation:
+  # for denoising
+  sigma: 50
+  noise_type: G # Gaussian noise: G
+
+  # for super-resolution
+  scale: 4
+
+datasets:
+  test1:
+    name: Val_Dataset
+    mode: LQGT
+    dataroot_GT: /home/proj/codes/datasets/raindrop/test_a/gt
+    dataroot_LQ: /home/proj/codes/datasets/raindrop/test_a/data
+
+#### network structures
+network_G:
+  which_model_G: ConditionalUNet
+  setting:
+    in_nc: 3
+    out_nc: 3
+    nf: 64
+    depth: 4
+
+#### path
+path:
+  pretrain_model_G: /home/proj/codes/log_raindrop/best_G.pth

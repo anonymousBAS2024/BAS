@@ -1,0 +1,34 @@
+name: ours
+suffix: ~  # add suffix to saved images
+model: denoising
+gpu_ids: [1]
+distortion: denoising
+
+sde:
+  T: 100
+
+  schedule: cosine # linear, cosine
+  eps: 0.005
+
+degradation:
+  sigma: 50
+  noise_type: G # Gaussian noise: G
+
+datasets:
+  test1:
+    name: CBSD68
+    mode: GT
+    dataroot_GT: /home/proj/codes/datasets/CBSD68/GT
+
+#### network structures
+network_G:
+  which_model_G: ConditionalUNet
+  setting:
+    in_nc: 3
+    out_nc: 3
+    nf: 64
+    depth: 4
+
+#### path
+path:
+  pretrain_model_G: /home/proj/codes/log_denoising/best_G.pth

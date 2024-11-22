@@ -1,0 +1,39 @@
+name: ours
+suffix: ~  # add suffix to saved images
+model: denoising
+distortion: sr
+gpu_ids: [2]
+
+sde:
+  
+  T: 100
+  schedule: cosine # linear, cosine
+  eps: 0.005
+  
+degradation:
+  # for denoising
+  sigma: 25
+  noise_type: G # Gaussian noise: G
+
+  # for super-resolution
+  scale: 4
+
+datasets:
+  test1:
+    name: Val_Dataset
+    mode: LQGT
+    dataroot_GT: /home/proj/codes/datasets/DIV2K/DIV2K_valid_HR
+    dataroot_LQ: /home/proj/codes/datasets/DIV2K/DIV2K_valid_LR_bicubic/X4
+
+#### network structures
+network_G:
+  which_model_G: ConditionalUNet
+  setting:
+    in_nc: 3
+    out_nc: 3
+    nf: 64
+    depth: 4
+
+#### path
+path:
+  pretrain_model_G: /home/proj/codes/log_sisr/best_G.pth

@@ -1,0 +1,43 @@
+name: ours
+suffix: ~  # add suffix to saved images
+model: denoising
+distortion: derain
+gpu_ids: [0]
+
+sde:
+  
+  T: 100
+  schedule: cosine # linear, cosine
+  eps: 0.005
+  
+degradation:
+  # for denoising
+  sigma: 25
+  noise_type: G # Gaussian noise: G
+
+  # for super-resolution
+  scale: 4
+
+  # for inpainting
+  mask_root: data/datasets/gt_keep_masks/thin # thick, thin, genhalf, ex64
+
+datasets:
+  test1:
+    name: Val_Dataset
+    mode: LQGT
+    dataroot_GT: /home/proj/codes/datasets/celebaHQ/data256x256/testHQ
+    dataroot_LQ: /home/proj/codes/datasets/celebaHQ/data256x256/testLQ
+
+
+#### network structures
+network_G:
+  which_model_G: ConditionalUNet
+  setting:
+    in_nc: 3
+    out_nc: 3
+    nf: 64
+    depth: 4
+
+#### path
+path:
+  pretrain_model_G: /home/proj/experiments/inpainting/best_G.pth
