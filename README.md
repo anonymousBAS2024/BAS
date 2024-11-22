@@ -31,6 +31,6 @@ python test_ours.py -opt=options/test/ours.yml
 ```
 
 
-The code of **BAS** is developed based on the code of [improved diffusion](https://github.com/openai/improved-diffusion) and[IR-SDE](https://github.com/Algolzw/image-restoration-sde)
+The code of **BAS** is developed based on the code of [improved diffusion] (https://github.com/openai/improved-diffusion) and [IR-SDE] (https://github.com/Algolzw/image-restoration-sde)
 
 
